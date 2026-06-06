@@ -5,7 +5,7 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -16,6 +16,7 @@ model todo {
   id          Int       @id @default(autoincrement())
   text        String    @db.VarChar
   isCompleted Boolean   @default(false)
+  completedAt DateTime? @db.Timestamp()
   createdAt   DateTime? @db.Timestamp()
   updatedAt   DateTime? @db.Timestamp()
 }

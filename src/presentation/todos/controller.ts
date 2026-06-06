@@ -1,10 +1,20 @@
 import { Request, Response } from "express";
 
-const todos = [
+interface Todo {
+  id: number;
+  text: string;
+  isCompleted: boolean;
+  completedAt: Date | null;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const todos: Todo[] = [
   {
     id: 1,
     text: "Buy milk",
     isCompleted: false,
+    completedAt: null,
     createdAt: new Date(),
     updatedAt: new Date(),
   },
@@ -12,6 +22,7 @@ const todos = [
     id: 2,
     text: "Buy eggs",
     isCompleted: false,
+    completedAt: null,
     createdAt: new Date(),
     updatedAt: new Date(),
   },
@@ -19,6 +30,7 @@ const todos = [
     id: 3,
     text: "Buy bread",
     isCompleted: false,
+    completedAt: null,
     createdAt: new Date(),
     updatedAt: new Date(),
   },
@@ -48,6 +60,7 @@ export class TodoController {
       id: new Date().getTime() + Math.floor(Math.random() * 1000),
       text: text,
       isCompleted: false,
+      completedAt: null,
       createdAt: new Date(),
       updatedAt: new Date(),
     };
@@ -71,6 +84,9 @@ export class TodoController {
     isCompleted === "undefined"
       ? (todo.isCompleted = todo.isCompleted)
       : (todo.isCompleted = Boolean(isCompleted));
+
+    if (isCompleted) todo.completedAt = new Date();
+    else todo.completedAt = null;
 
     todo.updatedAt = new Date();
     res.json(todo);
