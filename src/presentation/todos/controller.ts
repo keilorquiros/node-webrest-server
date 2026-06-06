@@ -1,9 +1,27 @@
 import { Request, Response } from "express";
 
 const todos = [
-  { id: 1, text: "Buy milk", createdAt: new Date(), isCompleted: false },
-  { id: 2, text: "Buy eggs", createdAt: new Date(), isCompleted: false },
-  { id: 3, text: "Buy bread", createdAt: new Date(), isCompleted: false },
+  {
+    id: 1,
+    text: "Buy milk",
+    isCompleted: false,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: 2,
+    text: "Buy eggs",
+    isCompleted: false,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    id: 3,
+    text: "Buy bread",
+    isCompleted: false,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
 ];
 
 export class TodoController {
@@ -29,8 +47,9 @@ export class TodoController {
     const newTodo = {
       id: new Date().getTime() + Math.floor(Math.random() * 1000),
       text: text,
-      createdAt: new Date(),
       isCompleted: false,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     };
     todos.push(newTodo);
     return res.status(201).json(newTodo);
@@ -53,6 +72,7 @@ export class TodoController {
       ? (todo.isCompleted = todo.isCompleted)
       : (todo.isCompleted = Boolean(isCompleted));
 
+    todo.updatedAt = new Date();
     res.json(todo);
   };
 

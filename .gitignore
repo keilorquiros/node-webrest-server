@@ -1,7 +1,9 @@
 node_modules/
 keys/
 postgres/
+/generated/prisma
 
 .env
 app.http.ts
 app.http2.ts
+
