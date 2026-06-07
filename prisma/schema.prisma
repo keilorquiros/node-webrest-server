@@ -14,9 +14,10 @@ datasource db {
 
 model todo {
   id          Int       @id @default(autoincrement())
-  text        String    @db.VarChar
+  text        String    @db.VarChar(255)
   isCompleted Boolean   @default(false)
-  completedAt DateTime? @db.Timestamp()
-  createdAt   DateTime? @db.Timestamp()
-  updatedAt   DateTime? @db.Timestamp()
+  completedAt DateTime? @db.Timestamptz(6)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

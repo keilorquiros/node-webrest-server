@@ -38,6 +38,8 @@ export class UpdateTodoDto {
 
       if (completed && previousTodo.isCompleted)
         return ["Todo is already completed"];
+      if (!completed && !previousTodo.isCompleted)
+        return ["Todo is already not completed"];
 
       completedAt = completed ? new Date() : null;
     }

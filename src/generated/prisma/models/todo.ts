@@ -190,8 +190,8 @@ export type TodoGroupByOutputType = {
   text: string
   isCompleted: boolean
   completedAt: Date | null
-  createdAt: Date | null
-  updatedAt: Date | null
+  createdAt: Date
+  updatedAt: Date
   _count: TodoCountAggregateOutputType | null
   _avg: TodoAvgAggregateOutputType | null
   _sum: TodoSumAggregateOutputType | null
@@ -222,8 +222,8 @@ export type todoWhereInput = {
   text?: Prisma.StringFilter<"todo"> | string
   isCompleted?: Prisma.BoolFilter<"todo"> | boolean
   completedAt?: Prisma.DateTimeNullableFilter<"todo"> | Date | string | null
-  createdAt?: Prisma.DateTimeNullableFilter<"todo"> | Date | string | null
-  updatedAt?: Prisma.DateTimeNullableFilter<"todo"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"todo"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"todo"> | Date | string
 }
 
 export type todoOrderByWithRelationInput = {
@@ -231,8 +231,8 @@ export type todoOrderByWithRelationInput = {
   text?: Prisma.SortOrder
   isCompleted?: Prisma.SortOrder
   completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type todoWhereUniqueInput = Prisma.AtLeast<{
@@ -243,8 +243,8 @@ export type todoWhereUniqueInput = Prisma.AtLeast<{
   text?: Prisma.StringFilter<"todo"> | string
   isCompleted?: Prisma.BoolFilter<"todo"> | boolean
   completedAt?: Prisma.DateTimeNullableFilter<"todo"> | Date | string | null
-  createdAt?: Prisma.DateTimeNullableFilter<"todo"> | Date | string | null
-  updatedAt?: Prisma.DateTimeNullableFilter<"todo"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"todo"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"todo"> | Date | string
 }, "id">
 
 export type todoOrderByWithAggregationInput = {
@@ -252,8 +252,8 @@ export type todoOrderByWithAggregationInput = {
   text?: Prisma.SortOrder
   isCompleted?: Prisma.SortOrder
   completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  createdAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.todoCountOrderByAggregateInput
   _avg?: Prisma.todoAvgOrderByAggregateInput
   _max?: Prisma.todoMaxOrderByAggregateInput
@@ -269,16 +269,16 @@ export type todoScalarWhereWithAggregatesInput = {
   text?: Prisma.StringWithAggregatesFilter<"todo"> | string
   isCompleted?: Prisma.BoolWithAggregatesFilter<"todo"> | boolean
   completedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"todo"> | Date | string | null
-  createdAt?: Prisma.DateTimeNullableWithAggregatesFilter<"todo"> | Date | string | null
-  updatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"todo"> | Date | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"todo"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"todo"> | Date | string
 }
 
 export type todoCreateInput = {
   text: string
   isCompleted?: boolean
   completedAt?: Date | string | null
-  createdAt?: Date | string | null
-  updatedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type todoUncheckedCreateInput = {
@@ -286,16 +286,16 @@ export type todoUncheckedCreateInput = {
   text: string
   isCompleted?: boolean
   completedAt?: Date | string | null
-  createdAt?: Date | string | null
-  updatedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type todoUpdateInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   isCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type todoUncheckedUpdateInput = {
@@ -303,8 +303,8 @@ export type todoUncheckedUpdateInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   isCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type todoCreateManyInput = {
@@ -312,16 +312,16 @@ export type todoCreateManyInput = {
   text: string
   isCompleted?: boolean
   completedAt?: Date | string | null
-  createdAt?: Date | string | null
-  updatedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type todoUpdateManyMutationInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   isCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type todoUncheckedUpdateManyInput = {
@@ -329,8 +329,8 @@ export type todoUncheckedUpdateManyInput = {
   text?: Prisma.StringFieldUpdateOperationsInput | string
   isCompleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  createdAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type todoCountOrderByAggregateInput = {
@@ -378,6 +378,10 @@ export type BoolFieldUpdateOperationsInput = {
 
 export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
+}
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
 }
 
 export type IntFieldUpdateOperationsInput = {
@@ -436,8 +440,8 @@ export type $todoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     text: string
     isCompleted: boolean
     completedAt: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["todo"]>
   composites: {}
 }
