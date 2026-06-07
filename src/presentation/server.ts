@@ -30,10 +30,12 @@ export class Server {
     //* Routes
     this.app.use(this.routes);
 
+    // Usar '*' para capturar todas las rutas no definidas (SPA)
     this.app.get("/{*splat}", (req, res) => {
-      const indexPath = path.join(
-        __dirname,
-        `../../${this.publicPath}/index.html`,
+      const indexPath = path.resolve(
+        process.cwd(),
+        this.publicPath,
+        "index.html",
       );
       res.sendFile(indexPath);
       return;

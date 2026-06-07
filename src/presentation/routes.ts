@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { TodoRoutes } from "./todos/routes";
+import { TodoRoutes } from "./todos/routes.js";
 
 export class AppRoutes {
   static get routes() {
