@@ -1,4 +1,5 @@
-import "dotenv/config";
+import { config } from "dotenv";
+config({ path: ".env.development" }); // Cambia '.env' por el nombre de tu archivo si es distinto
 import envVar from "env-var";
 const { get } = envVar;
 

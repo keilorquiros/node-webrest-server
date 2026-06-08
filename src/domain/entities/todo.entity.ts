@@ -1,3 +1,5 @@
+import { CustomError } from "../errors/custom.error.js";
+
 export class TodoEntity {
   constructor(
     public id: number,
@@ -19,7 +21,7 @@ export class TodoEntity {
       !createdAt ||
       !updatedAt
     ) {
-      throw "Missing required properties for TodoEntity";
+      throw new CustomError("Missing required properties for TodoEntity", 400);
     }
 
     return new TodoEntity(

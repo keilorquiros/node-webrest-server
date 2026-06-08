@@ -1,6 +1,10 @@
 {
-  "include": ["src",],
-  "exclude": ["node_modules"],
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test"
+],
   "compilerOptions": {
     // Visit https://aka.ms/tsconfig to read more about this file
     // File Layout
@@ -13,7 +17,7 @@
     "moduleResolution": "nodenext",
     "esModuleInterop": true,
     "ignoreDeprecations": "6.0",
-    "types": ["node"],
+    "types": ["node", "jest"],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],

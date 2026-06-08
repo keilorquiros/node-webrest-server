@@ -2,8 +2,10 @@ node_modules/
 /postgres
 keys/
 dist/
+coverage/
 
-.env
+!.env.template
+.env*
 app.http.ts
 app.http2.ts
 controller.ddd.ts
